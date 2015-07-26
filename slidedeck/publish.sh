@@ -1,3 +1,4 @@
 #!/bin/sh
 
-cd ../; git subtree split --branch gh-pages --prefix slidedeck/dist/'
+cd ../
+git subtree split --branch gh-pages --prefix slidedeck/dist/
