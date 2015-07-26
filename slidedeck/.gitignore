@@ -1,0 +1,4 @@
+src/assets/js/components
+node_modules
+slidedeck/dist/temp
+slidedeck/dist/includes
