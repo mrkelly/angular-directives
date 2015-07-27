@@ -12,11 +12,16 @@ gulp.task('eslint', function () {
     .pipe(eslint.format());
 });
 
+gulp.task('html', function () {
+  return gulp.src(['src/**/*.html'])
+    .pipe(livereload());
+});
+
 gulp.task('concat:css', function() {
   return gulp.src([
       'node_modules/bootstrap/dist/css/bootstrap.css',
       'node_modules/bootstrap/dist/css/bootstrap-theme.css',
-      'assets/css/style.css'
+      'src/assets/css/style.css'
     ])
     .pipe(concat('style.css'))
     .pipe(gulp.dest('dist/assets'))
@@ -37,15 +42,15 @@ gulp.task('babel', ['eslint'], function () {
 
 gulp.task('connect', function() {
   connect.server({
-    root: '.',
     port: 8000
   });
 });
 
 gulp.task('watch', ['connect', 'babel', 'concat:css'], function() {
   livereload.listen();
-  gulp.watch(['src/**'], ['babel']);
-  gulp.watch(['assets/**'], ['concat:css']);
+  gulp.watch(['src/**/*.js'], ['babel']);
+  gulp.watch(['src/**/*.html'], ['html']);
+  gulp.watch(['src/**/*.css'], ['concat:css']);
 });
 
 gulp.task('default', ['watch']);
