@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html class="no-js" ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="/dist/assets/style.css"/>
+    <script type="text/javascript" src="/node_modules/angular/angular.js"></script>
+    <script type="text/javascript" src="/dist/example-4/app.js"></script>
+  </head>
+  <body class="container sm-margin-top" ng-controller="AppController as appCtrl">
+    <svg-box-wrapper>
+      <div class="row" ng-repeat="i in [0, 1, 2, 3]">
+        <div class="col-xs-3" ng-repeat="j in [0, 1, 2, 3]"
+          ng-init="isBoxOn = i % 3 > 0 && j % 3 > 0">
+          <p>{{isBoxOn}}</p>
+          <svg-box is-on="isBoxOn" on-click="appCtrl.boxWasClicked(i, j, status)"/>
+        </div>
+      </div>
+    </svg-box-wrapper>
+  </body>
+</html>

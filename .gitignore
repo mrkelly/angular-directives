@@ -1,2 +1,4 @@
 slidedeck/dist/temp
 slidedeck/dist/includes
+examples/node_modules
+examples/dist

@@ -1,0 +1,7 @@
+.sm-margin-top {
+  margin-top: 30px;
+}
+
+rect {
+  transition: fill .25s ease;
+}
